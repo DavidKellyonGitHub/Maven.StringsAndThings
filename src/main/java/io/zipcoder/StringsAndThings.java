@@ -63,19 +63,42 @@ public class StringsAndThings {
      *           gHappy("xxgxx") // Should return  false
      *           gHappy("xxggyygxx") // Should return  false
      */
-    public Boolean gIsHappy(String input){
-        return null;
+    public Boolean gIsHappy(String input) {
+        char[] letters = input.toCharArray();
+        boolean result = true;
+        int happyG = 0;
+        int sadG = 0;
+        for (int i = 1; i < letters.length - 1; i++) {
+            if (letters[i] == 'g') {
+                if (letters[i + 1] == 'g' || letters[i - 1] == 'g') {
+                    happyG++;
+                } else sadG++;
+            }
+
+
+
+        }
+        return sadG == 0;
     }
 
 
-    /**
-     * We'll say that a "triple" in a string is a char appearing three times in a row.
-     * Return the number of triples in the given string. The triples may overlap.
-     * example :  countTriple("abcXXXabc") // Should return 1
-     *            countTriple("xxxabyyyycd") // Should return 3
-     *            countTriple("a") // Should return 0
-     */
-    public Integer countTriple(String input){
-        return null;
+        /**
+         * We'll say that a "triple" in a string is a char appearing three times in a row.
+         * Return the number of triples in the given string. The triples may overlap.
+         * example :  countTriple("abcXXXabc") // Should return 1
+         *            countTriple("xxxabyyyycd") // Should return 3
+         *            countTriple("a") // Should return 0
+         */
+        public Integer countTriple (String input){
+            char[] letters = input.toCharArray();
+            Integer sameCount = 0;
+            for (int i = 1; i<letters.length-1;i++){
+                if((letters[i]==letters[i-1])&(letters[i]==letters[i+1])){
+                    sameCount++;
+                }
+            }
+
+            return sameCount;
+        }
     }
-}
+
